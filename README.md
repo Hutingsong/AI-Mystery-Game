@@ -1,3 +1,4 @@
+🚀 **在线试玩地址：[点击这里直接玩](https://ai-mystery-game-f9wxxk2cnut9xyc4gzvjhb.streamlit.app)**
 # 活动室谜案：消失的海报
 
 一个 LLM 驱动的侦探推理文字游戏。玩家通过询问 4 个 NPC 获取 8 条线索，
