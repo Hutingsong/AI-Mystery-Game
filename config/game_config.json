@@ -1,0 +1,153 @@
+{
+  "game_id": "poster_mystery_v1",
+  "title": "活动室谜案：消失的海报",
+  "intro": "周五晚智能协会在活动室赶制招新海报，周六早上发现设计文件被覆盖成空白。你是社团新成员，受社长委托，通过询问4个人查明直接原因和根本原因。",
+  "truth": {
+    "direct": "wang_hao",
+    "root_cause": "no_backup_delay",
+    "summary": "王浩周五晚导出视频时误覆盖同名海报文件；陈默未开启自动备份，且周六发现异常后未及时告知社长。"
+  },
+  "answer_options": {
+    "direct": {
+      "wang_hao": "王浩",
+      "chen_mo": "陈默",
+      "zhao_min": "赵敏",
+      "lin_xiao": "林晓"
+    },
+    "root_cause": {
+      "overwrite_accident": "导出视频时误覆盖文件",
+      "no_backup_delay": "未开启自动备份，且发现异常后延迟告知",
+      "malicious_delete": "有人恶意删除",
+      "unknown": "目前无法判断"
+    }
+  },
+  "npcs": {
+    "lin_xiao": {
+      "name": "林晓",
+      "role": "社长",
+      "personality": "着急、直接，但不想冤枉人",
+      "knows": ["key_log", "room_booking", "delivery_deadline"],
+      "does_not_know": ["computer_operation", "backup_status", "who_overwrote"],
+      "forbidden_phrases": ["王浩覆盖", "陈默没备份"],
+      "sensitive_reply": "我要是知道是谁干的，还用得着让你来查吗？",
+      "default_replies": [
+        "这个我不太清楚，你去问问相关的人吧。",
+        "我这边只知道个大概，细节你问当事人。",
+        "别急，一个个问过去，总能拼出来。"
+      ],
+      "unlock_rules": [
+        {
+          "clue_id": "C1",
+          "keywords": ["钥匙", "门禁", "谁来过", "登记", "借钥匙"],
+          "requires": [],
+          "reply": "钥匙登记本上写着：周五晚王浩借了钥匙，赵敏19:10来借钥匙取U盘，19:25就还了。"
+        },
+        {
+          "clue_id": "C2",
+          "keywords": ["周五", "申请", "使用安排", "谁用", "预约"],
+          "requires": [],
+          "reply": "周五晚是王浩申请的，18:00到21:00，说是导出社团视频。"
+        }
+      ]
+    },
+    "chen_mo": {
+      "name": "陈默",
+      "role": "设计负责人",
+      "personality": "防御性强，怕被追责，会先强调有人恶意删除",
+      "knows": ["file_version", "last_save_time", "no_backup", "found_time"],
+      "does_not_know": ["who_overwrote", "room_key_log"],
+      "forbidden_phrases": ["王浩覆盖", "是我没备份的错"],
+      "sensitive_reply": "谁覆盖的？我哪知道，反正不是我。",
+      "default_replies": [
+        "这个你得问别人，我只管设计。",
+        "我说了不是我干的，别的我不清楚。",
+        "你别老盯着我，去问问周五在活动室的人。"
+      ],
+      "unlock_rules": [
+        {
+          "clue_id": "C3",
+          "keywords": ["最后保存", "文件时间", "版本", "保存时间"],
+          "requires": [],
+          "reply": "海报文件最后保存时间是周五20:12，我记得很清楚。"
+        },
+        {
+          "clue_id": "C5",
+          "keywords": ["备份", "自动保存", "自动备份", "存档"],
+          "requires": [],
+          "reply": "……好吧，我确实没开自动备份，也没手动存一份。这事儿我认。"
+        },
+        {
+          "clue_id": "C6",
+          "keywords": ["什么时候发现", "为什么没早说", "告诉社长", "发现异常"],
+          "requires": [],
+          "reply": "周六9:30我就发现文件空白了，但拖到10:00才告诉社长……我怕被骂。"
+        }
+      ]
+    },
+    "wang_hao": {
+      "name": "王浩",
+      "role": "值班同学",
+      "personality": "紧张、回避，但被问到具体操作时会露馅",
+      "knows": ["video_export", "same_name_file", "replace_popup"],
+      "does_not_know": ["backup_status", "chen_mo_delay", "lin_xiao_thought"],
+      "forbidden_phrases": ["我覆盖了海报", "是我干的"],
+      "sensitive_reply": "你、你别瞎猜啊，我什么都没干。",
+      "default_replies": [
+        "我那天就是去导个视频，别的没注意。",
+        "这个……我不太记得了，你问别人吧。",
+        "我真没动海报文件，真的。"
+      ],
+      "unlock_rules": [
+        {
+          "clue_id": "C4",
+          "keywords": ["周五晚上", "电脑", "导出", "视频", "做了什么"],
+          "requires": [],
+          "reply": "周五晚上我在活动室电脑上导出社团视频，大概八点多吧。"
+        },
+        {
+          "clue_id": "C7",
+          "keywords": ["弹窗", "提示", "替换", "同名", "覆盖"],
+          "requires": ["C4"],
+          "reply": "……导出的时候好像是弹了个窗，问要不要替换同名文件，我当时没细看就点了“是”。"
+        }
+      ]
+    },
+    "zhao_min": {
+      "name": "赵敏",
+      "role": "隔壁社团成员",
+      "personality": "配合、客观，觉得这事跟自己无关",
+      "knows": ["borrow_key", "see_wang_hao", "time_window"],
+      "does_not_know": ["poster_file", "backup_status", "who_overwrote"],
+      "forbidden_phrases": ["王浩覆盖", "陈默没备份"],
+      "sensitive_reply": "我就是去拿个U盘，跟我没关系啊。",
+      "default_replies": [
+        "我那天就待了一小会儿，没注意别的。",
+        "这个我真不知道，你问他们社团的人吧。",
+        "我就取个U盘，别的什么都没碰。"
+      ],
+      "unlock_rules": [
+        {
+          "clue_id": "C8",
+          "keywords": ["借钥匙", "看到谁", "时间", "去活动室干什么", "U盘"],
+          "requires": [],
+          "reply": "我19:10借钥匙去取U盘，19:25就还了。进去的时候看到王浩在电脑前，屏幕我没细看。"
+        }
+      ]
+    }
+  },
+  "clues": {
+    "C1": {"title": "钥匙登记", "content": "周五晚王浩借钥匙；赵敏19:10借钥匙取U盘，19:25归还。"},
+    "C2": {"title": "活动室使用申请", "content": "王浩申请周五18:00—21:00导出社团视频。"},
+    "C3": {"title": "文件最后保存时间", "content": "海报文件最后保存于周五20:12。"},
+    "C4": {"title": "电脑最近文件记录", "content": "20:10导出视频，20:12有同名文件覆盖记录。"},
+    "C5": {"title": "备份状态", "content": "陈默未开启自动备份，也没有手动备份。"},
+    "C6": {"title": "发现异常时间线", "content": "陈默周六9:30发现文件空白，10:00才告诉社长。"},
+    "C7": {"title": "覆盖细节", "content": "王浩导出时弹出同名文件替换提示，他点了“是”。"},
+    "C8": {"title": "赵敏证词", "content": "19:10—19:25在活动室，看到王浩在电脑前，没注意屏幕。"}
+  },
+  "win_condition": {
+    "required_clues": ["C4", "C5", "C7"],
+    "correct_answer": {"direct": "wang_hao", "root_cause": "no_backup_delay"},
+    "max_attempts": 2
+  }
+}

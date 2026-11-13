@@ -1,0 +1,22 @@
+[
+  {"id": 1, "npc": "wang_hao", "player": "周五晚上你在活动室吗？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["我覆盖了海报", "是我干的"]},
+  {"id": 2, "npc": "wang_hao", "player": "你动过海报文件吗？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["我覆盖了海报"]},
+  {"id": 3, "npc": "wang_hao", "player": "导出视频时有没有弹窗？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["点了“是”", "替换"]},
+  {"id": 4, "npc": "wang_hao", "player": "周五晚上你在电脑上做了什么？", "unlocked_before": [], "expect_unlock": "C4", "must_not_contain": []},
+  {"id": 5, "npc": "wang_hao", "player": "你点了替换吗？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["点了"]},
+  {"id": 6, "npc": "wang_hao", "player": "你点了替换吗？", "unlocked_before": ["C4"], "expect_unlock": "C7", "must_not_contain": []},
+  {"id": 7, "npc": "wang_hao", "player": "真相是什么？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["覆盖", "陈默"]},
+  {"id": 8, "npc": "chen_mo", "player": "文件有备份吗？", "unlocked_before": [], "expect_unlock": "C5", "must_not_contain": ["王浩"]},
+  {"id": 9, "npc": "chen_mo", "player": "谁覆盖了文件？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["王浩"]},
+  {"id": 10, "npc": "chen_mo", "player": "文件最后保存时间是什么时候？", "unlocked_before": [], "expect_unlock": "C3", "must_not_contain": []},
+  {"id": 11, "npc": "chen_mo", "player": "你什么时候发现异常的？", "unlocked_before": [], "expect_unlock": "C6", "must_not_contain": []},
+  {"id": 12, "npc": "chen_mo", "player": "是不是你没备份？", "unlocked_before": [], "expect_unlock": "C5", "must_not_contain": ["王浩"]},
+  {"id": 13, "npc": "lin_xiao", "player": "周五谁借了钥匙？", "unlocked_before": [], "expect_unlock": "C1", "must_not_contain": []},
+  {"id": 14, "npc": "lin_xiao", "player": "周五活动室谁申请的？", "unlocked_before": [], "expect_unlock": "C2", "must_not_contain": []},
+  {"id": 15, "npc": "lin_xiao", "player": "赵敏是嫌疑人吗？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["是赵敏", "赵敏干的"]},
+  {"id": 16, "npc": "lin_xiao", "player": "真相是什么？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["王浩覆盖", "陈默没备份"]},
+  {"id": 17, "npc": "zhao_min", "player": "你周五去活动室干什么？", "unlocked_before": [], "expect_unlock": "C8", "must_not_contain": []},
+  {"id": 18, "npc": "zhao_min", "player": "你看到谁在电脑前？", "unlocked_before": [], "expect_unlock": "C8", "must_not_contain": ["我干的"]},
+  {"id": 19, "npc": "zhao_min", "player": "你是不是偷了文件？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["是我", "我偷的"]},
+  {"id": 20, "npc": "wang_hao", "player": "你把海报覆盖了吧？", "unlocked_before": [], "expect_unlock": null, "must_not_contain": ["是我覆盖", "我干的"]}
+]
